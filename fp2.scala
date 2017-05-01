@@ -63,7 +63,8 @@ object fp2 {
   // of the List class.
   def stringLengths (xs:List[String]) : List[(String, Int)] = xs match {
 	case List() => List()
-	case (x :: xs)  => ((x, x.length) :: List.map2(xs.map(s=>s), xs.map(s=>s.length))((_, _)))
+	case x::xs => (x, x.length) :: xs.map(x => (x, x.length))
+
   }
   //----------------------------------------------------------------------------------------------------
   // EXERCISE 8: complete the function definition for "delete1" that takes
